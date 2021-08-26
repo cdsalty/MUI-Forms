@@ -1,3 +1,4 @@
+import React from "react";
 import { TextField } from "@material-ui/core";
 import { useField } from "formik";
 
@@ -14,19 +15,17 @@ const TextfieldWrapper = ({ name, ...otherProps }) => {
     variant: "outlined" // the appearence
   };
 
+  // meta will return two things, touched and error
+  // this will in essance pass two additional props, error(which expects a boolean value of true or false in order to show the error state)
+  //  it will also get the "helperText" which allows us to make a custom error message in our yup validation.
+  if (meta && meta.touched && meta.error) {
+    configTextField.error = true;
+    configTextField.helperText = meta.error;
+  }
+
   return (
     <TextField {...configTextField} /> // passing along the configuration setup with the TextField
   );
 };
 
-export default TextFieldWrapper;
-
-/*
-1. How can we make formik aware of the component? In other words, if any changes are made in a particular field to update 
-the form state?
-
-  - useField hook
-    - you want to destructure the props along with any additional props passed in... (name and ...otherProps)
-    - 
-
-*/
+export default TextfieldWrapper;
