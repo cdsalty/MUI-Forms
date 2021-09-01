@@ -91,6 +91,7 @@ const App = () => {
                   </Grid>
 
                   <Grid item xs={6}>
+                    {/* 'name' references formik(name) to make formik aware of any changes. */}
                     <Textfield name="firstName" label="First Name" />
                   </Grid>
 
@@ -100,6 +101,7 @@ const App = () => {
 
                   <Grid item xs={6}>
                     <Textfield name="email" label="Email" />
+                    {/* name matches the name in index.js while "email" matches our formik initial value */}
                   </Grid>
 
                   <Grid item xs={6}>

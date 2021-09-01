@@ -3,6 +3,7 @@ import { TextField } from "@material-ui/core";
 import { useField } from "formik";
 
 const TextfieldWrapper = ({ name, ...otherProps }) => {
+  // name will be passed to the TextField inside of App.js
   // bring in the useField hook, pass in name and ...otherProps so formik knows any changes, etc.
   const [field, meta] = useField(name); // pass in name because we want to know it's activity
   // the field will be passed into the "textField component"
@@ -16,7 +17,7 @@ const TextfieldWrapper = ({ name, ...otherProps }) => {
   };
 
   // meta will return two things, touched and error
-  // this will in essance pass two additional props, error(which expects a boolean value of true or false in order to show the error state)
+  // error(which expects a boolean value of true or false in order to show the error state) -- the red text that appears on error
   //  it will also get the "helperText" which allows us to make a custom error message in our yup validation.
   if (meta && meta.touched && meta.error) {
     configTextField.error = true;
